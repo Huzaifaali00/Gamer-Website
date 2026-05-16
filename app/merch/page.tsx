@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
 export default function Merch() {
   const { t } = useLanguage();
@@ -29,9 +30,21 @@ export default function Merch() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
           {[
-            { name: t('merch.proHoodie'), bg: "bg-zinc-900" },
-            { name: t('merch.signatureTee'), bg: "bg-zinc-800" },
-            { name: t('merch.mousepad'), bg: "bg-zinc-950" }
+            { 
+              name: t('merch.proHoodie'), 
+              image: "/images/hoodie.png",
+              link: "https://klover3-live-shop.fourthwall.com/products/kloever3-club-suit-tie-dye-hoodie"
+            },
+            { 
+              name: t('merch.signatureTee'), 
+              image: "/images/shirt.png",
+              link: "https://klover3-live-shop.fourthwall.com/products/kloever3-club-symbol-t-shirt-only-dark-color"
+            },
+            { 
+              name: t('merch.mousepad'), 
+              image: "/images/pad.png",
+              link: "https://klover3-live-shop.fourthwall.com/products/sleek-gamers-essential-mouse-pad"
+            }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -40,15 +53,25 @@ export default function Merch() {
               transition={{ delay: 0.4 + index * 0.1 }}
               className="glass-card aspect-[3/4] flex flex-col items-center justify-center relative group overflow-hidden"
             >
-              <div className={`absolute inset-4 ${item.bg} rounded-xl flex items-center justify-center`}>
-                <span className="font-orbitron text-text-muted/30 text-6xl opacity-50">?</span>
+              <div className="absolute inset-4 rounded-xl flex items-center justify-center overflow-hidden">
+                <Image 
+                  src={item.image} 
+                  alt={item.name}
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <a 
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20"
+              >
                 <span className="bg-accent-3 text-black font-orbitron font-bold px-4 py-2 rounded-full uppercase tracking-wider text-sm mb-4">
-                  {t('merch.comingSoon')}
+                  {t('merch.buyNow')}
                 </span>
-              </div>
-              <h3 className="absolute bottom-8 font-orbitron font-bold text-white z-10 text-lg uppercase tracking-wider">
+              </a>
+              <h3 className="absolute bottom-8 font-orbitron font-bold text-white z-10 text-lg uppercase tracking-wider bg-black/40 backdrop-blur-sm px-4 py-1 rounded-md">
                 {item.name}
               </h3>
             </motion.div>
@@ -61,7 +84,9 @@ export default function Merch() {
           transition={{ delay: 0.8 }}
         >
           <a
-            href="#MERCH_PLACEHOLDER"
+            href="https://klover3-live-shop.fourthwall.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-accent-3 text-black font-orbitron font-black tracking-widest text-xl px-12 py-5 rounded-xl hover:scale-105 transition-transform shadow-[0_0_32px_rgba(245,158,11,0.6)]"
           >
             {t('merch.visitStore')}

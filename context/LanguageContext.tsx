@@ -68,6 +68,7 @@ const translations: Translations = {
   'merch.title': { en: 'GEAR UP LIKE TREKLOVERN', no: 'KLE DEG SOM TREKLOVERN' },
   'merch.subtitle': { en: 'Rep the treklovern brand. Limited drops. Real quality.', no: 'Vis fram treklovern-merket. Begrensede kolleksjoner. Ekte kvalitet.' },
   'merch.comingSoon': { en: 'COMING SOON', no: 'KOMMER SNART' },
+  'merch.buyNow': { en: 'BUY NOW', no: 'KJØP NÅ' },
   'merch.visitStore': { en: 'VISIT THE STORE', no: 'BESØK BUTIKKEN' },
   'merch.proHoodie': { en: 'Pro Hoodie', no: 'Pro-hettegenser' },
   'merch.signatureTee': { en: 'Signature T-Shirt', no: 'Signatur-T-skjorte' },
